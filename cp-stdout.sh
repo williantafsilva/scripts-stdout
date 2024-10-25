@@ -34,12 +34,13 @@ for F in ${INPUTFILE} ; do
 	OUTPUTFILE=$(readlink -f ${OUTPUTFILE})
 	OUTPUTFILELOCATION=${OUTPUTFILE%/*}
 	echo "Copying file: ${FILEX} -----> ${OUTPUTFILE}"
-	echo "############################################################################
+done
+IFS='$ORIGINALIFS'
+
+echo "############################################################################
 Date: ${RUNDATE}
 cp-stdout.sh ${ARGS}
 " >> $(echo "${OUTPUTFILELOCATION}/README.txt")
-done
-IFS='$ORIGINALIFS'
 
 ############################################################################
 ##END OF BASH SCRIPT...
