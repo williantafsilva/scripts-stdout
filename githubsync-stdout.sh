@@ -24,7 +24,6 @@ echo "---> Synchronizing GitHub repositories..."
 #ssh-add -l -E md5 #Verify that list of SSH keys on GitHub matches the output from the ssh-add command.
 #Clone GitHub depositories (first time only).
 #git clone git@github.com:williantafsilva/bashprofiles.git
-#git clone git@github.com:williantafsilva/BASH-environment-settings.git
 #git clone git@github.com:williantafsilva/scripts-sbatch.git
 #git clone git@github.com:williantafsilva/scripts-R.git
 #git clone git@github.com:williantafsilva/scripts-Python.git
@@ -35,26 +34,32 @@ echo "---> Synchronizing GitHub repositories..."
 eval "$(ssh-agent -s)" #Start SSH agent in the background.
 ssh-add ~/.ssh/id_ed25519_github #Add your SSH private key to the ssh-agent.
 
+echo "---> Synchronizing bashprofiles ..."
 cd ${PATHTOMYBASHPROFILES}
 git stash
 git pull origin
 
+echo "---> Synchronizing scripts-sbatch ..."
 cd ${PATHTOMYSBATCHSCRIPTS}
 git stash
 git pull origin
 
+echo "---> Synchronizing scripts-R ..."
 cd ${PATHTOMYRSCRIPTS}
 git stash
 git pull origin
 
+echo "---> Synchronizing scripts-Python ..."
 cd ${PATHTOMYPYTHONSCRIPTS}
 git stash
 git pull origin
 
+echo "---> Synchronizing scripts-stdout ..."
 cd ${PATHTOMYGENERALSCRIPTS}
 git stash
 git pull origin
 
+echo "---> Synchronizing bioinformatics-workflow ..."
 cd ${PATHTOMYWORKFLOW}
 git stash
 git pull origin
