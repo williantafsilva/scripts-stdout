@@ -20,8 +20,8 @@
 ##ACTIONS:
 
 ##Input file.
-INPUTFILE1=$(echo $(readlink -f $1))
-INPUTFILE2=$(echo $(readlink -f $2))
+INPUTFILE1=$(readlink -f $1)
+INPUTFILE2=$(readlink -f $2)
 
 ##Process.
 echo "FILE1ONLY	FILE2ONLY	BOTH"
