@@ -33,7 +33,7 @@ Script location: $0
 First argument: $1
 Second argument: $2
 Last argument: "${@:$#}" or "${@: -1}"
-All but last argument: "${@:$#}"
+All but last argument: "${@:1:$#-1}"
 From third argument to last: "${@:3}"
 All arguments: "$@"
 
@@ -62,6 +62,7 @@ Project home directory: ${PROJHOME}
 
 My scripts directory: ${PATHTOMYSCRIPTS}
 My SBATCH scripts: ${PATHTOMYSBATCHSCRIPTS}
+My R scripts: ${PATHTOMYRSCRIPTS}
 My general scripts: ${PATHTOMYGENERALSCRIPTS}
 My bash profiles: ${PATHTOMYBASHPROFILES}
 My submitted scripts: ${PATHTOMYSUBMITTEDSCRIPTS}
