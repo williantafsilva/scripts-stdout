@@ -29,18 +29,19 @@ OUTPUTFILE="${@:$#}" ##Last argument.
 ##Process.
 IFS=$' '
 for F in ${INPUTFILE} ; do
+	
 	FILEX=$(readlink -f ${F})
 	cp -r ${FILEX} ${OUTPUTFILE}
 	OUTPUTFILE=$(readlink -f ${OUTPUTFILE})
 	OUTPUTFILELOCATION=${OUTPUTFILE%/*}
 	echo "Copying file: ${FILEX} -----> ${OUTPUTFILE}"
+	echo "############################################################################
+Date: ${RUNDATE}
+cp-stdout.sh ${FILEX} ${OUTPUTFILE}
+" >> $(echo "${OUTPUTFILELOCATION}/README.txt")
+
 done
 IFS='$ORIGINALIFS'
-
-echo "############################################################################
-Date: ${RUNDATE}
-cp-stdout.sh ${ARGS}
-" >> $(echo "${OUTPUTFILELOCATION}/README.txt")
 
 ############################################################################
 ##END OF BASH SCRIPT...
