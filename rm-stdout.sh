@@ -45,7 +45,7 @@ rm-stdout.sh ${FILEX}
 	echo "############################################################################
 Date: ${RUNDATE}
 rm-stdout.sh ${FILEX}
-" >> $(echo "${TRASHDIR}/README.txt")
+" >> $(echo "${PATHTOPROJTRASH}/README.txt")
 
 done
 IFS='$ORIGINALIFS'
