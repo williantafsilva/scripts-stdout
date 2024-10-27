@@ -29,18 +29,20 @@ OUTPUTFILE="${@:$#}" ##Last argument.
 ##Process.
 IFS=$' '
 for F in ${INPUTFILE} ; do
+
 	FILEX=$(readlink -f ${F})
 	INPUTFILELOCATION=${FILEX%/*}
 	mv ${FILEX} ${OUTPUTFILE}
 	OUTPUTFILE=$(readlink -f ${OUTPUTFILE})
 	echo "Moving/renaming file: ${FILEX} -----> ${OUTPUTFILE}"
+	
+	echo "############################################################################
+Date: ${RUNDATE}
+mv-stdout.sh ${FILEX} ${OUTPUTFILE}
+" >> $(echo "${INPUTFILELOCATION}/README.txt")
+
 done
 IFS='$ORIGINALIFS'
-
-echo "############################################################################
-Date: ${RUNDATE}
-mv-stdout.sh ${ARGS}
-" >> $(echo "${INPUTFILELOCATION}/README.txt")
 
 ############################################################################
 ##END OF BASH SCRIPT...
