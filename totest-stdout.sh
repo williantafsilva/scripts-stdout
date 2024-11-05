@@ -7,24 +7,24 @@
 ##SCRIPT DESCRIPTION:
 
 ##Description:
-##Copy files to tmp directory.
+##Copy files to test directory.
 
 ##Input: Files.
-##Output: Copies of files in tmp directory.
+##Output: Copies of files in test directory.
 
 ##Usage: 
-##totmpdir-stdout.sh <FILES>
+##totest-stdout.sh <FILES>
 
 ############################################################################
 ##ACTIONS:
 
 ##Input.
-INPUTFILES="$@"
+INPUT="$@"
 
 ##Process.
-find ${INPUTFILES} -maxdepth 0 | while read F ; do
-	cp -r ${F} ${PATHTOPROJTMP}
-	echo "Copy of file ${F} created in directory ${PATHTOPROJTMP}"
+find ${INPUT} -maxdepth 0 | while read F ; do
+	cp -r ${F} ${PATHTOPROJTEST}
+	echo "Copy of file ${F} created in directory ${PATHTOPROJTEST}"
 done
 
 ############################################################################

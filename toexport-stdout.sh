@@ -7,24 +7,24 @@
 ##SCRIPT DESCRIPTION:
 
 ##Description:
-##Copy files to test directory.
+##Copy files to export directory.
 
 ##Input: Files.
-##Output: Copies of files in test directory.
+##Output: Copies of files in export directory.
 
 ##Usage: 
-##totestdir-stdout.sh <FILES>
+##toexport-stdout.sh <FILES>
 
 ############################################################################
 ##ACTIONS:
 
 ##Input.
-INPUTFILES="$@"
+INPUT="$@"
 
 ##Process.
-find ${INPUTFILES} -maxdepth 0 | while read F ; do
-	cp -r ${F} ${PATHTOPROJTESTDIR}
-	echo "Copy of file ${F} created in directory ${PATHTOPROJTESTDIR}"
+find ${INPUT} -maxdepth 0 | while read F ; do
+	cp -r ${F} ${PATHTOPROJEXPORT}
+	echo "Copy of file ${F} created in directory ${PATHTOPROJEXPORT}"
 done
 
 ############################################################################

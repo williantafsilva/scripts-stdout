@@ -13,7 +13,7 @@
 ##Output: Delete input file.
 
 ##Usage: 
-##rm-stdout.sh <INPUT FILE> <OUTPUT FILE NAME>
+##totrash-stdout.sh <INPUT FILE> <OUTPUT FILE NAME>
 
 ############################################################################
 ##ACTIONS:
@@ -24,13 +24,13 @@ RUNDATE=$(date +"%Y%m%d%H%M%S")
 TRASHDIR=$(echo "${PATHTOPROJTRASH}/trash-${RUNDATE}")
 
 ##Input.
-INPUTFILES="$@"
+INPUT="$@"
 
 ##Process.
 mkdir -p ${TRASHDIR} #Create trash directory.
 
 IFS=$' '
-find ${INPUTFILES} -maxdepth 0 | while read F ; do
+find ${INPUT} -maxdepth 0 | while read F ; do
 
 	FILEX=$(readlink -f ${F})
 	echo "Moving to trash: ${FILEX}"
@@ -39,12 +39,12 @@ find ${INPUTFILES} -maxdepth 0 | while read F ; do
 	
 	echo "############################################################################
 Date: ${RUNDATE}
-rm-stdout.sh ${FILEX}
+totrash-stdout.sh ${FILEX}
 " >> $(echo "${FILEXLOCATION}/README.txt")
 	
 	echo "############################################################################
 Date: ${RUNDATE}
-rm-stdout.sh ${FILEX}
+totrash-stdout.sh ${FILEX}
 " >> $(echo "${PATHTOPROJTRASH}/README.txt")
 
 done
