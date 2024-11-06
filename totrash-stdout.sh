@@ -10,7 +10,7 @@
 ##Move or change name of input file.
 
 ##Input 1: Input files.
-##Output: Delete input file.
+##Output: Move input files to trash directory.
 
 ##Usage: 
 ##totrash-stdout.sh <INPUT FILE> <OUTPUT FILE NAME>
