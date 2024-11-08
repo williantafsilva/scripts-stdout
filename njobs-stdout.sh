@@ -26,6 +26,7 @@ NCOMPLETED=$(sacct --format="JobID,Partition,JobName%30,User,State,Elapsed,ExitC
 NFAILED=$(sacct --format="JobID,Partition,JobName%30,User,State,Elapsed,ExitCode" | grep -v ".ext+" | grep -v ".ex+" | grep -v ".bat+" | grep -v ".ba+" | grep "FAILED" | wc -l)
 NTIMEOUT=$(sacct --format="JobID,Partition,JobName%30,User,State,Elapsed,ExitCode" | grep -v ".ext+" | grep -v ".ex+" | grep -v ".bat+" | grep -v ".ba+" | grep "TIMEOUT" | wc -l)
 NCANCELLED=$(sacct --format="JobID,Partition,JobName%30,User,State,Elapsed,ExitCode" | grep -v ".ext+" | grep -v ".ex+" | grep -v ".bat+" | grep -v ".ba+" | grep "CANCELLED" | wc -l)
+NOUTOFMEMORY=$(sacct --format="JobID,Partition,JobName%30,User,State,Elapsed,ExitCode" | grep -v ".ext+" | grep -v ".ex+" | grep -v ".bat+" | grep -v ".ba+" | grep "OUT_OF_MEMORY" | wc -l)
 
 echo "----------------------------------------------------------------------------
 SUBMITTED JOBS (User: ${USER})
@@ -34,6 +35,7 @@ RUNNING: ${NRUNNING}
 COMPLETED: ${NCOMPLETED}
 FAILED: ${NFAILED}
 TIMEOUT: ${NTIMEOUT}
+OUT OF MEMORY: ${NOUTOFMEMORY}
 CANCELLED: ${NCANCELLED}
 ----------------------------------------------------------------------------"
 if [[ $((${NPENDING} + ${NRUNNING})) -gt 20 ]] ; then 
