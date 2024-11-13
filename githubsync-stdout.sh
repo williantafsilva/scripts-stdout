@@ -29,6 +29,7 @@ echo "---> Synchronizing GitHub repositories..."
 #git clone git@github.com:williantafsilva/scripts-Python.git
 #git clone git@github.com:williantafsilva/scripts-stdout.git
 #git clone git@github.com:williantafsilva/bioinformatics-workflow.git
+#git clone git@github.com:williantafsilva/scripts-tmp.git
 
 #Update all GitHub depositories. Create a separate script for this to avoid errors when using scp.
 eval "$(ssh-agent -s)" #Start SSH agent in the background.
@@ -63,4 +64,10 @@ echo "---> Synchronizing bioinformatics-workflow ..."
 cd ${PATHTOMYWORKFLOW}
 git stash
 git pull origin
+
+echo "---> Synchronizing scripts-tmp ..."
+cd ${PATHTOMYTMPSCRIPTS}
+git stash
+git pull origin
+
 cd ${HOME}
