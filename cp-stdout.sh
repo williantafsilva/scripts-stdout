@@ -33,7 +33,11 @@ for F in ${INPUTFILE} ; do
 	FILEX=$(readlink -f ${F})
 	cp -r ${FILEX} ${OUTPUTFILE}
 	OUTPUTFILE=$(readlink -f ${OUTPUTFILE})
-	OUTPUTFILELOCATION=${OUTPUTFILE%/*}
+	if [[ -d "${OUTPUTFILE}" ]] ; then
+		OUTPUTFILELOCATION=${OUTPUTFILE}
+	else
+		OUTPUTFILELOCATION=${OUTPUTFILE%/*}
+	fi
 	echo "Copying file: ${FILEX} -----> ${OUTPUTFILE}"
 	echo "############################################################################
 Date: ${RUNDATE}
