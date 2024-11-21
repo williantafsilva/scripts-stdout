@@ -71,5 +71,3 @@ git stash
 git pull origin
 
 cd ${HOME}
-
-sourcebash
