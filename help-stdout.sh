@@ -37,11 +37,20 @@ All but last argument: "${@:1:$#-1}"
 From third argument to last: "${@:3}"
 All arguments: "$@"
 
----> 
+---> Screen sessions:
+List available screens: screen -ls
+Create a screen session: screen -D -R -S <SCREEN NAME>
+Attach screen session: screen -r <SESSION ID>
+Dettach screen session: screen -d -S <SESSION ID>
+Quit screen session: screen -XS <SESSION ID> quit
+Quit current screen session: <CTRL+SHIFT+a+d>
 
----> 
+---> Extract information from path to file ():
+File location: ${<PATHTOFILE>%/*}
+File name: ${<PATHTOFILE>##*/}
 
----> 
+---> Useful sed commands:
+Delete everything up to -: sed -e '"'"'s/.*-//'"'"'
 
 ---> 
 
