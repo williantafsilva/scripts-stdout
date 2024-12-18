@@ -26,15 +26,20 @@ STRING2=$2
 ##Process.
 CONSENSUS=""
 while read C ; do
+    echo "${C}"
     C1=$(echo ${C} | cut -f1)
     C2=$(echo ${C} | cut -f2)
     if [[ "${C1}" == "${C2}" ]] ; then
         CONSENSUS+="${C1}"
+        echo "."
+        echo "${CONSENSUS}"
     else
         CONSENSUS+="X"
+        echo "X"
+        echo "${CONSENSUS}"
     fi
 done <<< "$(paste -d'\t' <(echo ${STRING1} | grep -o .) <(echo ${STRING2} | grep -o .))"
-echo ${CONSENSUS}
+echo "${CONSENSUS}"
 
 ############################################################################
 ##END OF BASH SCRIPT...
