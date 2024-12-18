@@ -7,7 +7,7 @@
 ##SCRIPT DESCRIPTION:
 
 ##Description:
-##Show similarities and differences between two lists.
+##Show consensus string of two strings.
 
 ##Input 1: String 1.
 ##Input 2: String 2.
@@ -19,9 +19,9 @@
 ############################################################################
 ##ACTIONS:
 
-##Input file.
-STRING1=$(echo $1)
-STRING2=$(echo $2)
+##Input.
+STRING1=$1
+STRING2=$2
 
 ##Process.
 CONSENSUS=""
