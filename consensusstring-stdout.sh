@@ -26,8 +26,8 @@ STRING2=$2
 ##Process.
 CONSENSUS=""
 while read C ; do
-    C1=$(echo ${C} | cut -d'   ' -f1)
-    C2=$(echo ${C} | cut -d'   ' -f2)
+    C1=$(echo ${C} | cut -d' ' -f1)
+    C2=$(echo ${C} | cut -d' ' -f2)
     if [[ "${C1}" == "${C2}" ]] ; then
         CONSENSUS+="${C1}"
     else
