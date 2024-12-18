@@ -34,7 +34,7 @@ while read C ; do
         CONSENSUS+="X"
     fi
 done <<< "$(paste -d'\t' <(echo ${STRING1} | grep -o .) <(echo ${STRING2} | grep -o .))"
-echo "CONSENSUS:${CONSENSUS}"
+echo "${CONSENSUS}"
 
 ############################################################################
 ##END OF BASH SCRIPT...
