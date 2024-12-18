@@ -52,7 +52,8 @@ File name: ${<PATHTOFILE>##*/}
 ---> Useful sed commands:
 Delete everything up to -: sed -e '"'"'s/.*-//'"'"'
 
----> 
+---> Select lines than match a pattern in columns 4 and 5, and print values in column 3 of the selected lines.
+<INPUT> | awk -v L="${L}" '"'"'($4 == L && $5 == "R2") {print $3}'"'"'
 
 ---> 
 
