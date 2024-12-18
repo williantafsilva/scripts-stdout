@@ -20,8 +20,8 @@
 ##ACTIONS:
 
 ##Input file.
-STRING1=$1
-STRING2=$2
+STRING1=$(echo $1)
+STRING2=$(echo $2)
 
 ##Process.
 CONSENSUS=""
